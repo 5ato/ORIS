@@ -22,9 +22,9 @@ public class HttpServer(MyConfiguration configuration, string _htmlPage)
 
     private async Task RunningServerAsync(CancellationToken token)
     {
-        try
+        while (!token.IsCancellationRequested)
         {
-            while (!token.IsCancellationRequested)
+            try
             {
                 var context = await _httpListener.GetContextAsync();
 
@@ -38,13 +38,12 @@ public class HttpServer(MyConfiguration configuration, string _htmlPage)
                 await output.WriteAsync(buffer, token);
                 await output.FlushAsync(token);
             }
+            catch
+            {
+                Console.WriteLine("Фигня");
+            }
         }
-        catch (OperationCanceledException)
-        { }
-        finally
-        {
-            Stop();
-        }
+        Stop();
     }
 
     private void Stop()

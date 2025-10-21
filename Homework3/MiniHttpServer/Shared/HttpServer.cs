@@ -39,9 +39,9 @@ public class HttpServer(AppSettings configuration)
 
     private async Task RunningServerAsync(CancellationToken token)
     {
-        try
+        while (!token.IsCancellationRequested)
         {
-            while (!token.IsCancellationRequested)
+            try
             {
                 var context = await _httpListener.GetContextAsync();
 
@@ -55,13 +55,12 @@ public class HttpServer(AppSettings configuration)
                 await output.WriteAsync(responseByte, token);
                 await output.FlushAsync(token);
             }
+            catch
+            {
+                Console.WriteLine("Фигня");
+            }
         }
-        catch (OperationCanceledException)
-        { }
-        finally
-        {
-            Stop();
-        }
+        Stop();
     }
 
     private byte[] Process(HttpListenerContext context)
