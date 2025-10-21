@@ -1,16 +1,16 @@
 @font-face {
     font-family: GTWalsheimPro;
-    src: url("Fonts/GT\ Walsheim\ Pro/GTWalsheimProRegular.woff2") format("woff2");
+    src: url("../Fonts/GT\ Walsheim\ Pro/GTWalsheimProRegular.woff2") format("woff2");
 }
 
 @font-face {
     font-family: GoogleSansRegular;
-    src: url("Fonts/GoogleSans/GoogleSans-Regular.woff2") format("woff2");
+    src: url("../Fonts/GoogleSans/GoogleSans-Regular.woff2") format("woff2");
 }
 
 @font-face {
     font-family: GoogleSansMedium;
-    src: url("Fonts/GoogleSans/GoogleSans-Medium.woff2") format("woff2");
+    src: url("../Fonts/GoogleSans/GoogleSans-Medium.woff2") format("woff2");
 }
 
 body {
@@ -82,7 +82,7 @@ button {
 }
 
 .site-header .home-link {
-    background: url("images/logo/logo-gray-wo-bubble.svg") 50% 100% no-repeat;
+    background: url("../images/logo/logo-gray-wo-bubble.svg") 50% 100% no-repeat;
     background-size: contain;
     display: inline-block;
     height: 28px;
@@ -236,11 +236,11 @@ button {
 }
 
 .support .mainscreen-character {
-    background-image: url("images/mainscreen/mainscreen-character--support.png");
+    background-image: url("../images/mainscreen/mainscreen-character--support.png");
 }
 
 .def .mainscreen-character {
-    background-image: url("images/mainscreen/mainscreen-character--defence.png");
+    background-image: url("../images/mainscreen/mainscreen-character--defence.png");
 }
 
 .mainscreen-character {
@@ -426,7 +426,7 @@ cubic-bezier(.25, .8, .25, 1);
 }
 
 .mainproducts-item__content-list li:before {
-    background-image: url("images/mainpage-check-white.svg");
+    background-image: url("../images/mainpage-check-white.svg");
     background-repeat: no-repeat;
     background-size: contain;
     content: "";
@@ -543,27 +543,27 @@ cubic-bezier(.25, .8, .25, 1);
 }
 
 .features__item-icon_1 {
-    background-image: url("images/features__icons/features-block-icon-1.png");
+    background-image: url("../images/features__icons/features-block-icon-1.png");
 }
 
 .features__item-icon_2 {
-    background-image: url("images/features__icons/features-block-icon-2.png");
+    background-image: url("../images/features__icons/features-block-icon-2.png");
 }
 
 .features__item-icon_3 {
-    background-image: url("images/features__icons/features-block-icon-3.png");
+    background-image: url("../images/features__icons/features-block-icon-3.png");
 }
 
 .features__item-icon_4 {
-    background-image: url("images/features__icons/features-block-icon-4.png");
+    background-image: url("../images/features__icons/features-block-icon-4.png");
 }
 
 .features__item-icon_5 {
-    background-image: url("images/features__icons/features-block-icon-5.png");
+    background-image: url("../images/features__icons/features-block-icon-5.png");
 }
 
 .features__item-icon_6 {
-    background-image: url("images/features__icons/features-block-icon-6.png");
+    background-image: url("../images/features__icons/features-block-icon-6.png");
 }
 
 .info-blocks-title--h2 {
@@ -758,27 +758,27 @@ cubic-bezier(.25, .8, .25, 1);
 }
 
 .skud-advantages-item-icon--services-1 {
-    background-image: url("images/icon-services/icon-services--1.svg");
+    background-image: url("../images/icon-services/icon-services--1.svg");
 }
 
 .skud-advantages-item-icon--services-2 {
-    background-image: url("images/icon-services/icon-services--2.svg");
+    background-image: url("../images/icon-services/icon-services--2.svg");
 }
 
 .skud-advantages-item-icon--services-3 {
-    background-image: url("images/icon-services/icon-services--3.svg");
+    background-image: url("../images/icon-services/icon-services--3.svg");
 }
 
 .skud-advantages-item-icon--services-4 {
-    background-image: url("images/icon-services/icon-services--4.svg");
+    background-image: url("../images/icon-services/icon-services--4.svg");
 }
 
 .skud-advantages-item-icon--services-5 {
-    background-image: url("images/icon-services/icon-services--5.svg");
+    background-image: url("../images/icon-services/icon-services--5.svg");
 }
 
 .skud-advantages-item-icon--services-6 {
-    background-image: url("images/icon-services/icon-services--6.svg");
+    background-image: url("../images/icon-services/icon-services--6.svg");
 }
 
 .expert-block--wrapper {
@@ -794,7 +794,7 @@ cubic-bezier(.25, .8, .25, 1);
 
 .expert-block {
     align-items: center;
-    background-image: url("images/expert/expert-call_bg.png");
+    background-image: url("../images/expert/expert-call_bg.png");
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -917,7 +917,7 @@ cubic-bezier(.25, .8, .25, 1);
 }
 
 .mobile-app-promo {
-    background: #00aeee url("images/mobile/bg_banner.png") 50% 50% no-repeat;
+    background: #00aeee url("../images/mobile/bg_banner.png") 50% 50% no-repeat;
     background-size: cover;
     color: #fff;
     margin-bottom: 80px;
@@ -974,15 +974,15 @@ cubic-bezier(.25, .8, .25, 1);
 }
 
 .mobile-app-promo__badge--appstore {
-    background-image: url("images/mobile/btn_appstore_light.png");
+    background-image: url("../images/mobile/btn_appstore_light.png");
 }
 
 .mobile-app-promo__badge--googleplay {
-    background-image: url("images/mobile/btn_googleplay_light.png");
+    background-image: url("../images/mobile/btn_googleplay_light.png");
 }
 
 .mobile-app-promo__badge--appgallery {
-    background-image: url("images/mobile/btn_appgallery_light.png");
+    background-image: url("../images/mobile/btn_appgallery_light.png");
 }
 
 .mobile-app-promo__badge {
@@ -1063,7 +1063,7 @@ p {
 }
 
 .site-footer .home-link {
-    background: url("images/logo/logo-white-wo-bubble.svg") 50% 100% no-repeat;
+    background: url("../images/logo/logo-white-wo-bubble.svg") 50% 100% no-repeat;
     background-position: 0;
     background-size: contain;
     border: none;
@@ -1169,11 +1169,11 @@ p {
 }
 
 .social-links .social.vk {
-    background-image: url("images/social/vk.svg");
+    background-image: url("../images/social/vk.svg");
 }
 
 .social-links .social.whatsapp {
-    background-image: url("images/social/whatsapp.svg");
+    background-image: url("../images/social/whatsapp.svg");
 }
 
 .social-links .social {
@@ -1201,7 +1201,7 @@ p {
 }
 
 .site-footer .footer-wrapper .top-block-wrapper .link-container .contacts-block .app-links .apple {
-    background-image: url("images/mobile/appstore_badge.png");
+    background-image: url("../images/mobile/appstore_badge.png");
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 5.625px;
@@ -1212,7 +1212,7 @@ p {
 }
 
 .site-footer .footer-wrapper .top-block-wrapper .link-container .contacts-block .app-links .google {
-    background-image: url("images/mobile/googleplay_badge.png");
+    background-image: url("../images/mobile/googleplay_badge.png");
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 5.625px;
@@ -1223,7 +1223,7 @@ p {
 }
 
 .site-footer .footer-wrapper .top-block-wrapper .link-container .contacts-block .app-links .huawei {
-    background-image: url("images/mobile/appgallery_badge.png");
+    background-image: url("../images/mobile/appgallery_badge.png");
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 5.625px;

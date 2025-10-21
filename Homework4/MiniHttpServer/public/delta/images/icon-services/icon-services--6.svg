@@ -1,0 +1,20 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0_151_341" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="100" height="100">
+<rect width="100" height="100" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_151_341)">
+<path d="M2.15439 80.1167L15.9138 47.2388H97.9999L77.5469 92.4503H9.55037C9.55037 92.4503 0.7637 92.2115 2.16142 80.1167H2.15439Z" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M29.856 39.6111L20.2546 30.0096H2V81.8095" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M55.0992 84.324H71.3591" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M90.8288 47.2388V11.8604C90.8288 9.1914 88.6445 7 85.9684 7H42.8639C40.1949 7 38.0035 9.18438 38.0035 11.8604V47.2388H90.8288Z" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M38.0034 12.605H34.7093C32.0403 12.605 29.8489 14.7893 29.8489 17.4654V47.2389" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44.7112 17.3881H50.892" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M55.7594 17.3881H83.5101" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44.7112 25.0509H50.892" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M55.7594 25.0509H83.5101" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44.7112 32.7068H50.892" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M55.7594 32.7068H83.5101" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44.7112 40.3625H50.892" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M55.7594 40.3625H83.5101" stroke="#706F6F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

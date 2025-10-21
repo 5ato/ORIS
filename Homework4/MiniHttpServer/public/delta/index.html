@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Delta</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="site">
+            <header class="site-header absolute">
+                <div class="container">
+                    <div class="top-header--wrapper">
+                        <a class="home-link" href="/"></a>
+                        <div class="city-dropdown">
+                            <span class="regions-title">Казань</span>
+                            <span>
+                                <svg class="chevron-container" width="8" height="5" viewBox="0 0 8 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path class="chevron" d="M1 1L4 4L7 1" stroke="black"></path>
+                                </svg>
+                            </span>
+                        </div>
+                        <a class="link" href="https://www.delta.ru/kazan/ohrana-krupnogo-biznesa/">Корпоративным клиентам</a>
+                    </div>
+                    <ul class="link-container">
+                        <li class="link-item">
+                            <span class="link telephone-number">
+                                <a href="tel:+78432105612">+7 (843) 210-53-18</a>
+                            </span>
+                        </li>
+                        <li class="link-item">
+                            <span class="link">Пополнить баланс</span>
+                        </li>
+                    </ul>
+                    <ul class="link-container icons">
+                        <li class="link-item icon call-btn">
+                            <button class="icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z" fill="white"></path>
+                                    <path d="M46.5 24C46.5 36.4264 36.4264 46.5 24 46.5C11.5736 46.5 1.5 36.4264 1.5 24C1.5 11.5736 11.5736 1.5 24 1.5C36.4264 1.5 46.5 11.5736 46.5 24Z" stroke="#009FE3" stroke-opacity="0.3" stroke-width="3"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M29.6228 26.8882C29.1718 26.7201 28.8438 26.6361 28.5156 27.1403C28.1877 27.6443 27.2447 28.7786 26.9575 29.1146C26.6705 29.4507 26.3835 29.4927 25.8914 29.2406C25.3993 28.9886 23.8138 28.4569 21.9343 26.7414C20.4716 25.4063 19.4839 23.7572 19.1969 23.253C18.9099 22.7489 19.1664 22.4765 19.4127 22.2254C19.634 21.9998 19.9047 21.6373 20.1508 21.3432C20.3968 21.0492 20.4788 20.8391 20.6428 20.5031C20.8069 20.167 20.7248 19.8729 20.6018 19.6209C20.4788 19.3688 19.4947 16.8903 19.0846 15.8821C18.6853 14.9003 18.2795 15.0331 17.9775 15.0177C17.6907 15.0031 17.3624 15 17.0344 15C16.7064 15 16.1732 15.126 15.7222 15.6301C15.2712 16.1342 14 17.3525 14 19.8309C14 22.3094 15.7632 24.7038 16.0092 25.0398C16.2553 25.3759 19.479 30.4621 24.4152 32.6432C25.5893 33.162 26.5058 33.4719 27.2205 33.704C28.3993 34.0871 29.472 34.0331 30.3199 33.9035C31.2653 33.7589 33.2311 32.6853 33.6413 31.5091C34.0514 30.3328 34.0514 29.3247 33.9283 29.1147C33.8053 28.9046 33.4773 28.7786 32.9853 28.5265C32.4931 28.2745 30.0739 27.0562 29.6228 26.8882Z" fill="#009FE3"></path>
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="link-item icon search-btn">
+                            <button class="icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z" fill="white"></path>
+                                    <path d="M33.6935 31.9925L29.1596 27.4586C30.2511 26.0054 30.8404 24.2367 30.8384 22.4192C30.8384 17.7769 27.0615 14 22.4192 14C17.7769 14 14 17.7769 14 22.4192C14 27.0615 17.7769 30.8384 22.4192 30.8384C24.2367 30.8404 26.0054 30.2511 27.4586 29.1596L31.9925 33.6935C32.222 33.8986 32.5213 34.0081 32.829 33.9995C33.1367 33.9909 33.4295 33.8648 33.6472 33.6472C33.8648 33.4295 33.9909 33.1367 33.9995 32.829C34.0081 32.5213 33.8986 32.222 33.6935 31.9925ZM16.4055 22.4192C16.4055 21.2298 16.7582 20.0671 17.419 19.0782C18.0798 18.0892 19.019 17.3184 20.1179 16.8633C21.2167 16.4081 22.4259 16.289 23.5924 16.521C24.759 16.7531 25.8305 17.3258 26.6715 18.1669C27.5126 19.0079 28.0853 20.0794 28.3174 21.246C28.5494 22.4125 28.4303 23.6217 27.9751 24.7205C27.52 25.8194 26.7492 26.7586 25.7602 27.4194C24.7713 28.0802 23.6086 28.4329 22.4192 28.4329C20.8249 28.431 19.2964 27.7968 18.169 26.6694C17.0416 25.5421 16.4074 24.0135 16.4055 22.4192Z" fill="#434C5D"></path>
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="link-item icon profile">
+                            <button class="icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z" fill="white"></path>
+                                    <path class="refill" fill-rule="evenodd" clip-rule="evenodd" d="M27.5 19.4091C27.5 21.2919 25.933 22.8182 24 22.8182C22.067 22.8182 20.5 21.2919 20.5 19.4091C20.5 17.5263 22.067 16 24 16C25.933 16 27.5 17.5263 27.5 19.4091ZM24 24.1818C28.4183 24.1818 32 27.2344 32 31H16C16 27.2344 19.5817 24.1818 24 24.1818Z" fill="#434C5D"></path>
+                                </svg>
+                            </button>
+                        </li>
+                        <li class="link-item icon">
+                            <button class="icon">
+                                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24 48C37.2548 48 48 37.2548 48 24C48 10.7452 37.2548 0 24 0C10.7452 0 0 10.7452 0 24C0 37.2548 10.7452 48 24 48Z" fill="white"></path>
+                                    <path class="refill" fill-rule="evenodd" clip-rule="evenodd" d="M12 21.5C12 20.6716 12.6716 20 13.5 20H31.5C32.3284 20 33 20.6716 33 21.5C33 22.3284 32.3284 23 31.5 23H13.5C12.6716 23 12 22.3284 12 21.5ZM17 28.5C17 27.6716 17.6716 27 18.5 27H26.5C27.3284 27 28 27.6716 28 28.5C28 29.3284 27.3284 30 26.5 30H18.5C17.6716 30 17 29.3284 17 28.5ZM34.5 27C35.3284 27 36 27.6716 36 28.5C36 29.3284 35.3284 30 34.5 30H31.5C30.6716 30 30 29.3284 30 28.5C30 27.6716 30.6716 27 31.5 27H34.5Z" fill="#434C5D"></path>
+                                </svg>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <a href="https://www.delta.ru/kazan/career/" class="career-marquee-container">
+                    <marquee behavior="scroll" direction="left" scrollamount="5">
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          Работа в DELTA!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                                                             
+                    </marquee>
+                </a>
+            </header>
+            <main class="site-main">
+                <section class="mainscreen">
+                    <div class="mainscreen-col def">
+                        <div class="mainscreen-wrapper">
+                            <div class="mainscreen-character"></div>
+                            <div class="mainscreen-btn">
+                                Получить &nbsp;
+                                <span>
+                                    защиту
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mainscreen-col banner">
+                        <img src="images/mainscreen/banner-ecosystem--08.png"/>
+                    </div>
+                    <div class="mainscreen-col support">
+                        <div class="mainscreen-wrapper">
+                            <div class="mainscreen-character"></div>
+                            <div class="mainscreen-btn">
+                                <span>
+                                    Поддержка
+                                </span>
+                                &nbsp;
+                                клиентов
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="main-text">
+                    <div class="container-fit">
+                        <h1 class="main-text__title">
+                            Охранные услуги и системы безопасности в Казани
+                        </h1>
+                        <div class="main-text__content">
+                            DELTA – федеральный провайдер услуг безопасности, создавший полноценную экосистему решений для защиты объектов бизнеса, частной недвижимости и транспортных средств.
+                        </div>
+                    </div>
+                </section>
+                <div class="pb-2 mb-4 pb-sm-3 mb-sm-5"></div>
+                <div class="mainproducts">
+                    <a class="mainproducts-item mainproducts-item_1" href="https://www.delta.ru/kazan/ohrana-biznesa/">
+                        <div class="mainproducts-item__content">
+                            <h2 class="mainproducts-item__content-title">Охрана бизнеса</h2>
+                            <p class="mainproducts-item__content-text">Комплексные охранные системы, учитывающие все особенности вашего бизнеса и ваш бюджет</p>
+                            <ul class="mainproducts-item__content-list">
+                                <li>установка под ключ;</li>
+                                <li>гарантия качества</li>
+                                <li>сервисное обслуживание</li>
+                            </ul>
+                            <p class="mainproducts-item__content-price">от 76 руб. в день</p>
+                        </div>
+                        <div class="mainproducts-item__image">
+                            <img src="images/mainproducts/mainpage-image-1.png"/>
+                        </div>
+                    </a>
+                    <a href="https://www.delta.ru/kazan/ohrana-kottedjej/" class="mainproducts-item mainproducts-item_half mainproducts-item_2">
+                        <div class="mainproducts-item__image">
+                            <img class="" alt="Охрана дома" src="images/mainproducts/mainpage-image-2.png">
+                        </div>
+                        <div class="mainproducts-item__content">
+                            <h2 class="mainproducts-item__content-title" data-ninja-font="googlesans_medium_normal_r29vz">
+                                Охрана дома
+                            </h2>
+                            <p class="mainproducts-item__content-text" data-ninja-font="googlesans_regular_normal_r29vz">
+                                Защита дома от большинства современных угроз — от возгорания или утечки газа до проникновения в дом.
+                            </p>
+                            <p class="mainproducts-item__content-price" data-ninja-font="googlesans_medium_normal_r29vz">
+                                от 53 руб. в день
+                            </p>
+                        </div>
+                    </a>
+                    <a href="https://www.delta.ru/kazan/ohrana-kvartir/" class="mainproducts-item mainproducts-item_half mainproducts-item_3">
+                        <div class="mainproducts-item__image">
+                            <img class="" alt="Охрана квартиры" src="images/mainproducts/mainpage-image-3.png">
+                        </div>
+                        <div class="mainproducts-item__content">
+                            <h2 class="mainproducts-item__content-title" data-ninja-font="googlesans_medium_normal_r29vz">
+                                Охрана квартиры
+                            </h2>
+                            <p class="mainproducts-item__content-text" data-ninja-font="googlesans_regular_normal_r29vz">
+                                Охранные системы, учитывающие особенности вашей квартиры и ваш бюджет.
+                            </p>
+                            <p class="mainproducts-item__content-price" data-ninja-font="googlesans_medium_normal_r29vz">
+                                от 33 руб. в день
+                            </p>
+                        </div>
+                    </a>
+                    <a href="https://www.delta.ru/kazan/ohrana-auto/" class="mainproducts-item mainproducts-item_4">
+                        <div class="mainproducts-item__content">
+                            <h2 class="mainproducts-item__content-title">
+                                Охрана автомобиля
+                            </h2>
+                            <p class="mainproducts-item__content-text">
+                                Системы мониторинга для вашего транспорта. Круглосуточный мониторинг и защита.
+                            </p>
+                            <p class="mainproducts-item__content-price">
+                                от 1 690 руб. в месяц
+                            </p>
+                        </div>
+                        <div class="mainproducts-item__image">
+                            <img class="" alt="Охрана автомобиля" src="images/mainproducts/mainpage-image-4.png">
+                        </div>
+                    </a>
+                    <a href="https://www.delta.ru/kazan/smartvideo/" class="mainproducts-item mainproducts-item_half mainproducts-item_5">
+                        <div class="mainproducts-item__image">
+                            <img class="" alt="Видеонаблюдение" src="images/mainproducts/mainpage-image-5.png">
+                        </div>
+                        <div class="mainproducts-item__content">
+                            <h2 class="mainproducts-item__content-title">
+                                Видеонаблюдение
+                            </h2>
+                            <p class="mainproducts-item__content-text">
+                                Защита дома на расстоянии. Безопасность и контроль в любое время суток.
+                            </p>
+                            <p class="mainproducts-item__content-price">
+                                от 6 130 руб.
+                            </p>
+                        </div>
+                    </a>
+                    <a href="https://www.delta.ru/kazan/fizicheskaya-ohrana/" class="mainproducts-item mainproducts-item_half mainproducts-item_6">
+                        <div class="mainproducts-item__image">
+                            <img class="" alt="Физическая охрана" src="images/mainproducts/mainpage-image-6.png">
+                        </div>
+                        <div class="mainproducts-item__content">
+                            <h2 class="mainproducts-item__content-title">
+                                Физическая охрана
+                            </h2>
+                            <p class="mainproducts-item__content-text">
+                                Физическая охрана людей, объектов и мероприятий. Любой сложности. По всей стране.
+                            </p>
+                        </div>
+                    </a>
+                    <a href="https://www.delta.ru/kazan/pozharnaya-signalizaciya/" class="mainproducts-item mainproducts-item_7">
+                        <div class="mainproducts-item__content">
+                            <h2 class="mainproducts-item__content-title">
+                                Пожарная сигнализация
+                            </h2>
+                            <p class="mainproducts-item__content-text">
+                                Берем всю работу на себя:
+                            </p>
+                            <ul class="mainproducts-item__content-list">
+                                <li>проект;</li>
+                                <li>монтаж;</li>
+                                <li>сервисное обслуживание и ремонт.</li>
+                            </ul>
+                            <p class="mainproducts-item__content-price">
+                                от 21&nbsp;990 руб.
+                            </p>
+                        </div>
+                        <div class="mainproducts-item__image">
+                            <img class="" alt="Пожарная сигнализация" src="images/mainproducts/mainpage-image-7.png">
+                        </div>
+                    </a>
+                    <a href="https://www.delta.ru/kazan/kompleksnye-systemy-bezopasnosti/" class="mainproducts-item mainproducts-item_half mainproducts-item_8">
+                        <div class="mainproducts-item__image">
+                            <img class="" alt="Комплексные системы безопасности" src="images/mainproducts/mainpage-image-8.png">
+                        </div>
+                        <div class="mainproducts-item__content">
+                            <h2 class="mainproducts-item__content-title">
+                                Комплексные системы безопасности
+                            </h2>
+                            <p class="mainproducts-item__content-text mb-2">
+                                Система под ключ:
+                            </p>
+                            <ul class="mainproducts-item__content-list">
+                                <li>смета;</li>
+                                <li>монтаж;</li>
+                                <li>обслуживание.</li>
+                            </ul>
+                            <p class="mainproducts-item__content-price">
+                                от 1 600 руб. за кв. м.
+                            </p>
+                        </div>
+                    </a>
+                    <a href="https://www.delta.ru/kazan/ohrana-krupnogo-biznesa/" class="mainproducts-item mainproducts-item_half mainproducts-item_9">
+                        <div class="mainproducts-item__image">
+                            <img class="" alt="Корпоративным клиентам" src="images/mainproducts/mainpage-image-9.png">
+                        </div>
+                        <div class="mainproducts-item__content">
+                            <h2 class="mainproducts-item__content-title">
+                                Корпоративным клиентам
+                            </h2>
+                            <p class="mainproducts-item__content-text">
+                                Индивидуальные решения для безопасности среднего и крупного бизнеса
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <section class="info-blocks">
+                    <div class="container container-fit">
+                        <div class="pb-5 mb-4">
+                            <section class="features__wrapper">
+                                <div class="container container-fit">
+                                    <h2 class="features__title">Почему стоит установить систему защиты DELTA</h2>
+                                    <div class="features">
+                                        <div class="features__item">
+                                            <div class="features__item-icon features__item-icon_1"></div>
+                                            <div class="features__item-text">
+                                                <div class="features__item-title">
+                                                    Гарантии качества
+                                                </div>
+                                                <div class="features__item-description">
+                                                    Высокий уровень качества работ, топовое оборудование
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="features__item">
+                                            <div class="features__item-icon features__item-icon_2"></div>
+                                            <div class="features__item-text">
+                                                <div class="features__item-title">
+                                                    Клиентский сервис
+                                                </div>
+                                                <div class="features__item-description">
+                                                    24/7, современные алгоритмы обслуживания, автоматизация рутинных запросов, чат-боты
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="features__item">
+                                            <div class="features__item-icon features__item-icon_3"></div>
+                                            <div class="features__item-text">
+                                                <div class="features__item-title">
+                                                    Экспертиза
+                                                </div>
+                                                <div class="features__item-description">
+                                                    Более 10 лет на рынке охранных услуг.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="features__item">
+                                            <div class="features__item-icon features__item-icon_4"></div>
+                                            <div class="features__item-text">
+                                                <div class="features__item-title">
+                                                    Мгновенное реагирование
+                                                </div>
+                                                <div class="features__item-description">
+                                                    ГБР прибывает в кратчайшие сроки
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="features__item">
+                                            <div class="features__item-icon features__item-icon_5"></div>
+                                            <div class="features__item-text">
+                                                <div class="features__item-title">
+                                                    Мобильное приложение
+                                                </div>
+                                                <div class="features__item-description">
+                                                    Управление безопасностью <br> из смартфона
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="features__item">
+                                            <div class="features__item-icon features__item-icon_6"></div>
+                                            <div class="features__item-text">
+                                                <div class="features__item-title">
+                                                    Сервисное обслуживание
+                                                </div>
+                                                <div class="features__item-description">
+                                                    Гарантийное <br> и постгарантийное обслуживание
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <h2 class="info-blocks-title--h2">
+                            Комплекс решений для защиты недвижимости
+                        </h2>
+                        <div class="main-house-scheme">
+                            <img src="images/main/main-house-scheme.jpg"/>
+                        </div>
+                        <div class="info-blocks-text pb-4 mb-0 pb-sm-5 mb-sm-2"></div>
+                        <h2 class="info-blocks-title--h2 text-center" id="rg-block">
+                            Реагирование силами DELTA и Росгвардии
+                        </h2>
+                        <div class="info-blocks-gbr mb-3">
+                            <img class="info-blocks-gbr-image info-blocks-gbr-image--1" src="images/main/main-gbr-block-image--1.png"/>
+                            <ul class="info-blocks-list">
+                                <li>6 000+ экипажей</li>
+                                <li>Приедут на тревогу за 5-7 мин</li>
+                                <li>Охранники высшей категории</li>
+                                <li>Владение техниками боя</li>
+                                <li>Разрешение на огнестрельное оружие</li>
+                                <li>Навыки психологического воздействия</li>
+                                <li>Умение оказывать первую помощь</li>
+                                <li>Ежегодно подтверждают квалификацию и повышают профориентацию</li>
+                            </ul>
+                        </div>
+                        <div class="info-blocks-gbr pb-4 mb-0 pb-sm-5 mb-sm-2">
+                        <ul class="info-blocks-list">
+                            <li>Государственные гарантии</li>
+                            <li>Преимущества проезда по дорогам общего пользования</li>
+                            <li>Федеральная сеть реагирования</li>
+                            <li>Право на арест</li>
+                        </ul>
+                        <img alt="Вооруженная охрана объектов ЧОП" class="info-blocks-gbr-image info-blocks-gbr-image--2" src="images/main/main-gbr-block-image--2.png">
+                        </div>
+                        <div class="info-blocks-text pb-4 mb-0 pb-sm-5 mb-sm-2">
+                            Комплексная система безопасности DELTA поможет предупредить большинство современных угроз для любого объекта недвижимости: от возгорания до проникновения.
+                        <br><br>
+                            На основании многолетней экспертизы DELTA были сформированы базовые комплекты защиты объектов недвижимости, но только в разговоре с экспертом вы сможете сформировать систему, которая подойдет именно вам.
+                        А эволюция охранных систем позволила им составить конкуренцию решениям для умного дома и теперь в состав охранных систем вы можете добавить элементы дистанционного управления комфортом на ваших объектах.
+                            Сформируйте свой центр безопасности и комфорта, поставив квартиру на пульт охраны DELTA.
+                        </div>
+                        <h2 class="info-blocks-title--h2 text-center">
+                            Основные принципы современной экосистемы безопасности
+                        </h2>
+                        <img alt="Охрана объектов ЧОП" class="main-how-work-image" src="images/main/main-how-work-new.jpg">
+                        <div class="info-blocks-text pb-4 mb-0 pb-sm-5 mb-sm-2">
+                            Все процессы, отвечающие за обеспечение мониторинга и реагирования, автоматизированы и соединены в единую бесшовную инфраструктуру. Для пользователя это значит только то, что человек не вмешивается в алгоритм обеспечения безопасности и выполняет администрирующую функцию.
+                            <br><br>
+                            Система по средствам защищенной инфраструктуры самостоятельно и автономно обменивается сигналами между объектами, станциями мониторинга и экипажами реагирования.
+                            <br><br>
+                            Также в автоматическом режиме происходит расстановка и назначение экипажа в случае тревоги и расчет оптимального маршрута прибытия к объекту. То, что недавно казалось фантастикой, уже реализовано экспертами DELTA.
+                        </div>
+                        <section class="fire-usluga fire-usluga_6 skud-advantages mt-5">
+                        <div class="container">
+                            <h2 class="skud-advantages-title cpl-block-title">
+                                Как получить услугу:
+                            </h2>
+                            <div class="skud-advantages-list">
+                                <div class="skud-advantages-item">
+                                    <div class="skud-advantages-item-icon skud-advantages-item-icon--services-1"></div>
+                                    <div class="skud-advantages-item-title">
+                                        Вы оставляете заявку
+                                    </div>
+                                </div>
+                                <div class="skud-advantages-item">
+                                    <div class="skud-advantages-item-icon skud-advantages-item-icon--services-2"></div>
+                                    <div class="skud-advantages-item-title">
+                                        Получаете консультацию <br> и смету в тот же день
+                                    </div>
+                                </div>
+                                <div class="skud-advantages-item">
+                                    <div class="skud-advantages-item-icon skud-advantages-item-icon--services-3"></div>
+                                    <div class="skud-advantages-item-title">
+                                        Выезд инженера, <br>
+                                        составление ТЗ
+                                    </div>
+                                </div>
+                                <div class="skud-advantages-item">
+                                    <div class="skud-advantages-item-icon skud-advantages-item-icon--services-4"></div>
+                                    <div class="skud-advantages-item-title">
+                                        Заключение сделки
+                                    </div>
+                                </div>
+                                <div class="skud-advantages-item">
+                                    <div class="skud-advantages-item-icon skud-advantages-item-icon--services-5"></div>
+                                    <div class="skud-advantages-item-title">
+                                        Монтаж
+                                    </div>
+                                </div>
+                                <div class="skud-advantages-item">
+                                    <div class="skud-advantages-item-icon skud-advantages-item-icon--services-6"></div>
+                                    <div class="skud-advantages-item-title">
+                                        Подключение к системе мониторинга
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </section>
+                    </div>
+                    <section class="expert-block--wrapper">
+                        <div class="container--fit">
+                            <div class="expert-block">
+                                <div class="expert-block--col">
+                                    <h3 class="modal-title text-white">
+                                        Эксперт на связи
+                                    </h3>
+                                    <p class="modal-subtitle text-white mb-4">
+                                        Подберет решение и ответит на все вопросы
+                                    </p>
+
+                                    <form class="expert-form" id="expert-form" novalidate="novalidate" method="POST" action="auth">
+                                        <div class="form-group">
+                                            <input class="form-control" name="email" placeholder="Email Address" type="email" autocomplete="off">
+                                        </div>
+                                        <div class="form-group">
+                                            <input class="form-control" name="password" placeholder="Password" type="password">
+                                        </div>
+                                        <input class="btn btn-white w-100 mt-1" value="Заказать звонок" type="submit">
+                                    </form>
+
+                                    <small class="mt-2 text-center text-white">Нажимая "Заказать звонок", вы принимаете
+                                        <a class="text-nowrap" href="/policy/" target="_blank">
+                                            Условия обработки персональных данных
+                                        </a> и даете
+                                        <a class="text-nowrap" href="/media/uploads/policy-files/agreement-pnd-delta-2025-01.pdf" target="_blank">
+                                            Согласие на обработку персональных данных
+                                        </a>
+                                    </small>
+                                </div>
+                                <img class="expert-block-man" src="images/expert/expert-call-man--crop.png">
+                            </div>
+                        </div>
+                    </section>
+                    <div class="mobile-app-promo">
+                        <div class="mobile-app-promo__container container--fit">
+                            <div class="mobile-app-promo__title">
+                                <h2>Мобильное приложение <br> GoDELTA</h2>
+                            </div>
+                            <div class="mobile-app-promo__text">
+                                <p>
+                                    GoDELTA – это современный центр управления системой safe &amp; connected home прямо в вашем смартфоне. <br>
+                                    Мобильное приложение позволяет: <br>
+                                    - управлять безопасностью охраняемого объекта удаленно; <br>
+                                    - просматривать и пополнять баланс; <br>
+                                    - проверять статус охраняемого объекта; <br>
+                                    - заказать дополнительное оборудование и подключить новые объекты к охране. <br>
+                                    - связаться с поддержкой по любым вопросам 24/7.
+                                </p>
+                                <a class="btn btn-outline-light" href="/kazan/mobilnoe-prilojenie/">Подробнее</a>
+                            </div>
+
+                            <div class="mobile-app-promo__badges">
+                                <a href="https://apps.apple.com/ru/app/delta-licnyj-kabinet/id708986747" class="mobile-app-promo__badge  mobile-app-promo__badge--appstore" target="_blank" rel="nofollow noopener noreferrer" data-ga-category="btn_ios" data-ga-type="banner"></a>
+                                <a href="https://play.google.com/store/apps/details?id=ru.albertsoft.acabinet" class="mobile-app-promo__badge  mobile-app-promo__badge--googleplay" target="_blank" rel="nofollow noopener noreferrer" data-ga-category="btn_android" data-ga-type="banner"></a>
+                                <a href="https://appgallery.huawei.com/#/app/C102892775" class="mobile-app-promo__badge  mobile-app-promo__badge--appgallery" target="_blank" rel="nofollow noopener noreferrer" data-ga-category="btn_huawei" data-ga-type="banner"></a>
+                            </div>
+                            <img class="mobile-app-promo__device" src="images/mobile/new-app-mockup.png">
+                        </div>
+                    </div>
+                </section>
+                <div class="mt-4 mt-sm-5"></div>
+                <div class="seo-text">
+                    <div class="container--fit">
+                        <h2><span style="color:#365f91">Компания DELTA: надежность охранных систем для недвижимости и транспорта</span></h2>
+                        <p>DELTA предлагает передовые охранные системы от различных бытовых угроз. Хотите защитить себя, свое жилье, транспорт и имущество от злоумышленников и чрезвычайных ситуаций? Минимизировать возможные риски, с которыми связана деятельность предприятия? У нас есть подходящее решение.</p>
+                        <h2><span style="color:#4f81bd">Как работаем</span></h2>
+                        <p>Каждый наш сотрудник осознает важность своей работы и профессионального выполнения возложенных на него обязанностей, ведь от этого напрямую зависит эффективность защиты доверившегося нам клиента.</p>
+                        <p>Большое внимание уделяется профессиональной и физической подготовке охранников, привлекаемых для защиты недвижимости и транспорта, используем полностью исправный служебный транспорт, устанавливаем современные виды оборудования.</p>
+                        <h2><span style="color:#4f81bd">Что предлагаем</span></h2>
+                        <p>Обеспечиваем:</p>
+                        <ul>
+                            <li>защиту квартир и коттеджей;</li>
+                            <li>мониторинг и охрану автотранcпорта;</li>
+                            <li>организацию охраны бизнеса, автомобилей;</li>
+                            <li>установку противопожарной защиты;</li>
+                            <li>продажу и установку средств видеонаблюдения;</li>
+                            <li>монтаж и настройку СКУД;</li>
+                            <li>продажу, установку и настройку датчиков;</li>
+                            <li>разработку и реализацию комплексных решений.</li>
+                        </ul>
+                        <p>Всего 200+ решений для безопасности недвижимости и транспортных средств. Информацию о стоимости охранных услуг, тарифах и ценах на подключаемое оборудование вы найдете в соответствующих разделах сайта, либо уточняйте у наших менеджеров.</p>
+                        <h3><span style="color:#4f81bd">Защита квартир и коттеджей в Казани</span></h3>
+                        <p>Надежная <a href="https://www.delta.ru/kazan/ohrana-kvartir/">защита квартир</a>, а также <a href="https://www.delta.ru/kazan/ohrana-kottedjej">коттеджей</a>&nbsp;и гаражей обеспечивается путем установки инновационных систем безопасности. Эксперты круглосуточно находятся на связи и готовы ответить на любой вопрос, касающийся эксплуатации устройств.</p>
+                        <p>В случае несанкционированного проникновения система сразу же отправляет на пульт сигнал — на его прохождение требуется меньше одной секунды.&nbsp;ГБР ЧОП незамедлительно выезжает на место, прибывая туда за считанные минуты благодаря широкой сети реагирования.</p>
+                        <h3><span style="color:#4f81bd">Организация охраны бизнеса</span></h3>
+                        <p>Осуществляется по сходному принципу, только прибавляются дополнительные устройства. Работаем как с крупными фирмами, так и с малым бизнесом.</p>
+                        <p>Предварительно эксперты DELTA проводят аудит здания и прилегающей территории для выявления слабых сторон. После этого подготавливается проект, который утверждается заказчиком. Мы готовы предложить ряд дополнительных услуг по организации комплексной охраны, а также увеличить размер материальной ответственности.</p>
+                        <h3><span style="color:#4f81bd">Защита автомобилей</span></h3>
+                        <p>Это предложение будет особенно полезно и выгодно для владельцев коммерческого транспорта или автомобильных парков, но воспользоваться им могут и частные лица. DELTA предлагает установку комплексов, в состав которых входят:</p>
+                        <ul>
+                            <li>модуль GSM;</li>
+                            <li>модуль GPS, «ГЛОНАСС»;</li>
+                            <li>индивидуальный комплект датчиков.</li>
+                        </ul>
+                        <p>Комплектация подбирается с учетом задач клиента. От нее зависит общая стоимость реализации проекта.<br>
+                        <br>
+                        На ваш смартфон устанавливается приложение, с помощью которого можно эффективно контролировать как одну машину, так и весь парк. Сигнал тревоги поступает одновременно на телефон клиента и на пульт охраны, после чего вооруженная охрана ЧОП&nbsp;быстро прибывает на место.</p>
+                        <p>Установка охранного комплекса на новый автомобиль не приведет к его снятию с гарантии. Клиентам предоставляется скидка на каско.</p>
+                        <h3><span style="color:#4f81bd">Установка пожарной сигнализации</span></h3>
+                        <p>Возгорание, которое не было замечено вовремя, почти всегда приводит к тяжелым последствиям: уничтожаются материальные ценности, порой гибнут люди. Охранно-пожарная сигнализация нового поколения позволяет своевременно заметить появление огня, локализовать и потушить его, сведя ущерб к минимуму.</p>
+                        <p>Чем будут полезны наши эксперты:</p>
+                        <ul>
+                            <li>окажут помощь в разработке конфигурации;</li>
+                            <li>смонтируют и настроят комплекс;</li>
+                            <li>выполнят подключение и проверят работоспособность;</li>
+                            <li>в ходе эксплуатации по необходимости проведут техническое обслуживание и ремонт.</li>
+                        </ul>
+                        <p>Обычно устанавливается комбинированная противопожарная система, которая включает в себя тревожную кнопку для подачи сигнала на охранный пульт вручную и автоматические извещатели.</p>
+                        <h3><span style="color:#4f81bd">Видеонаблюдение</span></h3>
+                        <p>Хотите всегда быть в курсе того, что происходит дома или на работе в ваше отсутствие? Установите средства видеофиксации. Мы выпускаем и продаем по приятным ценам IP-камеры, которые в зависимости от типа устройства подходят для установки на горизонтальную поверхность внутри помещения, на потолок или на наружную стену здания.</p>
+                        <p>Любое из устройств можно установить самостоятельно, так как все необходимое входит в комплект. Для подключения нужен хороший интернет, а также электросеть на 220 В. Можно доверить эту работу и экспертам DELTA.</p>
+                        <p>Изображение с камер передается на мобильное устройство через приложение, которое может быть дополнено виртуальной тревожной кнопкой. В случае происшествия вы сможете вызвать экипаж на объект прямо со смартфона.</p>
+                        <h3><span style="color:#4f81bd">Управление доступом</span></h3>
+                        <p>Внедрять <a href="https://www.delta.ru/kazan/skud">СКУД</a> старается большинство компаний. Управление доступом позволяет предотвратить проникновение посторонних людей, а также упорядочить работу сотрудников учреждения.</p>
+                        <p>СКУД может выполнять разные функции:</p>
+                        <ul>
+                            <li>допуск в здание и отдельные помещения;</li>
+                            <li>идентификация личности;</li>
+                            <li>измерение температуры, детекция маски;</li>
+                            <li>учет рабочего времени;</li>
+                            <li>контроль работы сотрудников.</li>
+                        </ul>
+                        <p>Эксперты DELTA выполнят установку, настройку и проверку СКУД, а также обучат ваших сотрудников работе с ней.</p>
+                        <h3><span style="color:#4f81bd">Датчики</span></h3>
+                        <p>В нашем каталоге вы найдете датчики:</p>
+                        <ul>
+                            <li>утечки газа;</li>
+                            <li>протечки воды;</li>
+                            <li>открытия двери;</li>
+                            <li>движения;</li>
+                            <li>дыма;</li>
+                            <li>температуры.</li>
+                        </ul>
+                        <p>Кроме того, здесь представлены световой извещатель и беспроводная внутренняя сирена.</p>
+                        <h2><span style="color:#4f81bd">Почему стоит сотрудничать с DELTA</span></h2>
+                        <p>DELTA является федеральным провайдером услуг и продуктов безопасности. Обеспечивает безопасность на&nbsp;более 250&nbsp;000 объектах&nbsp;в 30 крупных городах РФ, в том числе в Казани. Эксперты DELTA готовы разработать и реализовать защиту под любую задачу. Используем лучшим образом зарекомендовавшее себя беспроводное оборудование с привлекательным дизайном, которое легко устанавливается и гармонично вписывается в любой интерьер.</p>
+                        <p>Мы гарантируем:</p>
+                        <ul>
+                            <li>профессионализм, а также отличную огневую и физическую подготовку членов экипажей ГБР охранных организаций (или ЧОП);</li>
+                            <li>высокое качество используемого оборудования;</li>
+                            <li>наличие различных средств связи для обеспечения надежной защиты;</li>
+                            <li>индивидуальную разработку плана организации системы безопасности для каждого случая;</li>
+                            <li>мгновенное реагирование на поступившие сигналы тревоги.</li>
+                        </ul>
+                        <p>Условия сотрудничества, а также стоимость оказания услуг оговариваются предварительно и вносятся в договор. Все сотрудники охранного предприятия, обеспечивающие защиту, лицензированы и имеют высшую категорию. Каждый год компания занимает ведущие места в рейтинге агентств, обеспечивающих безопасность, получив за 10 лет большое количество положительных отзывов от благодарных клиентов.</p>
+                        <p>Мы понимаем потребности тех, кто ищет услуги охранной фирмы. Наш подход отличается от стандартных решений, которые предлагают обычные охранные агентства.</p>
+                        <p>Телефоны и электронные адреса наших отделов и служб указаны в разделе <a href="https://www.delta.ru/kazan/contacts/" style="color:blue; text-decoration:underline">«Контакты»</a>.</p>
+                        <p>&nbsp;</p><p></p>
+                    </div>
+                </div>
+            </main>
+            <footer class="site-footer mt-5">
+                <div class="footer-wrapper">
+                    <div class="top-block-wrapper">
+                        <a title="Delta - системы безопасности для охраны квартиры, частного дома, бизнеса, автомобиля и других объектов" class="home-link no-hover pe-none"></a>
+                        <div class="link-container">
+                            <div class="link-column">
+                                <ul class="link-wrapper">
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/datchiki/">Датчики</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/ohrana-kvartir/">Охрана квартир</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/ohrana-kottedjej/">Охрана коттеджей</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/ohrana-biznesa/">Охрана бизнеса</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/ohrana-auto/">Охрана автомобиля</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/pozharnaya-signalizaciya/">Пожарнаясигнализация</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/smartvideo/">Видеонаблюдение</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/skud/">Управление доступом</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/kompleksnye-systemy-bezopasnosti/">Комплексные системы безопасности</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/fizicheskaya-ohrana/">Физическая охрана</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/virtualnaya-trevozhnaya-knopka/">Тревожная кнопка</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/pultovaya-ohrana/">Пультовая охрана</a></li>
+                                </ul>
+                            </div>
+                            <div class="link-column">
+                                <ul class="link-wrapper">
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/about/">О компании</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/contacts/">Контакты</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/career/">Вакансии</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/development/">Партнерам</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/stock/">Акции</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/blog/">Блог</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/reviews/">Отзывы</a></li>
+                                </ul>
+                            </div>
+                            <div class="link-column">
+                                <ul class="link-wrapper">
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/faq/">Помощь</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/mobilnoe-prilojenie/">Мобильное приложение</a></li>
+                                    <li class="link-item"><a class="link menu-link" href="/kazan/populyarno-ob-ohrane/">Популярно об охране</a></li>
+                                    <li class="link-item"><a class="link menu-link" rel="nofollow" href="/kazan/faq/documents/#help_documents">Документы</a></li>
+                                    <li class="link-item"><a class="link menu-link" rel="nofollow" href="/kazan/faq/questions/#help_instructions">Инструкции</a></li>
+                                    <li class="link-item"><a class="link menu-link" rel="nofollow" href="/kazan/faq/documents/#help_methods_of_payment">Способы оплаты</a></li>
+                                    <li class="link-item"><a class="link menu-link" rel="nofollow" href="/kazan/faq/questions/#help_system">Как работает система</a></li>
+                                    <li class="link-item"><a class="link menu-link" rel="nofollow" href="/kazan/cookie/">Файлы cookies</a></li>
+                                    <li class="link-item" style="white-space: normal;"><a class="link menu-link" rel="nofollow" href="/policy/">Политика в отношении обработки персональных данных</a></li>
+                                </ul>
+                            </div>
+                            <div class="contacts-block">
+                                <div class="phone-email">
+                                    <span class="call_phone_1"><a href="tel:+78432105318">+7 (843) 210-53-18</a></span>
+                                    <button class="btn btn-primary btn-rounded footer__button uni-form-trigger mr-4" data-toggle="modal" data-target="#modal-write-us">Написать нам</button>
+                                    <a href="/kazan/audit-biznesa/" class="btn btn-primary btn-rounded footer__button footer__button--red">Покупаем ЧОПы</a>
+                                </div>
+                                <div class="social-links">
+                                    <a href="https://vk.com/deltasecurity" target="_blank" class="link social vk"></a>
+                                    <a href="https://wa.me/79250800800?text=%D0%97%D0%B0%D1%8F%D0%B2%D0%BA%D0%B0+%E2%84%962113-2439903670.+%D0%9F%D1%80%D0%BE%D1%81%D1%8C%D0%B1%D0%B0+%D0%BD%D0%B5+%D1%83%D0%B4%D0%B0%D0%BB%D1%8F%D1%82%D1%8C+%D0%B4%D0%B0%D0%BD%D0%BD%D1%83%D1%8E+%D1%81%D1%82%D1%80%D0%BE%D0%BA%D1%83%2C+%D0%BE%D0%BD%D0%B0+%D0%BD%D1%83%D0%B6%D0%BD%D0%B0+%D0%B4%D0%BB%D1%8F+%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE%D0%B3%D0%BE+%D0%BF%D0%BE%D0%B8%D1%81%D0%BA%D0%B0+%D0%B2%D0%B0%D1%88%D0%B5%D0%B3%D0%BE+%D0%BE%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D1%8F." target="_blank" class="link social whatsapp"></a>
+                                </div>
+                                <div class="app-links">
+                                    <a href="https://apps.apple.com/ru/app/delta-licnyj-kabinet/id708986747" rel="nofollow noopener noreferrer" data-ga-category="btn_ios" data-ga-type="footer" class="link apple" target="_blank"></a>
+                                    <a href="https://play.google.com/store/apps/details?id=ru.albertsoft.acabinet" rel="nofollow noopener noreferrer" data-ga-category="btn_android" data-ga-type="footer" class="link google" target="_blank"></a>
+                                    <a href="https://appgallery.huawei.com/#/app/C102892775" rel="nofollow noopener noreferrer" data-ga-category="btn_huawei" data-ga-type="footer" class="link huawei" target="_blank"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-block-wrapper">
+                        <div class="text-container">
+                            <div class="text">© 2025 Дельта</div>
+                            <div class="text">
+                            Применяемые на данном интернет-сайте названия: Компания Дельта,
+                            Дельта, Федеральная компания Дельта — это предприятия, работающие
+                            под брендом и оказывающие услуги по организации охраны
+                            недвижимости, имущества, транспортных средств, и имеющие все
+                            необходимые лицензии и разрешения. Данный интернет-сайт носит
+                            исключительно справочно-информационный, аналитический, обзорный
+                            характер и ни при каких условиях не является публичной офертой,
+                            определяемой положениями Статьи 437 Гражданского кодекса РФ, и не
+                            имеет в качестве основной цели продвижение услуг на рынке.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </body>
+</html>
