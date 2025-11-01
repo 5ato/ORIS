@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36616.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyORMLibrary", "MyORMLibrary\MyORMLibrary.csproj", "{1915751D-C3B1-438C-8CAF-5260DF2B75E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyORMLibraryUnitTest", "MyORMLibraryUnitTest\MyORMLibraryUnitTest.csproj", "{B5611B71-2D6B-B97D-7363-15D52031EA12}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1915751D-C3B1-438C-8CAF-5260DF2B75E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1915751D-C3B1-438C-8CAF-5260DF2B75E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1915751D-C3B1-438C-8CAF-5260DF2B75E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1915751D-C3B1-438C-8CAF-5260DF2B75E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5611B71-2D6B-B97D-7363-15D52031EA12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5611B71-2D6B-B97D-7363-15D52031EA12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5611B71-2D6B-B97D-7363-15D52031EA12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5611B71-2D6B-B97D-7363-15D52031EA12}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AF0C9025-263B-45BB-8EF9-FA7AFBF5D4D3}
+	EndGlobalSection
+EndGlobal
