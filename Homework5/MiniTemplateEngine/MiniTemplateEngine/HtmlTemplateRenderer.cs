@@ -7,90 +7,62 @@ using System.Text.RegularExpressions;
 
 namespace MiniTemplateEngine;
 
-public class HtmlTemplateRenderer : IHtmlTemplateRenderer
+
+public abstract class StrategyKeyWord
 {
-    public string RenderFromString(string htmlTemplate, object dataModel)
+    public abstract void Algorithm(string htmlTemplate, Dictionary<string, object?> dataModel, StringBuilder result, ref int lastSeen, ref int position);
+    protected static string ExtractCondition(string htmlTemplate, int startIndex, ref int lastSeen)
     {
-        var data = ToDictionary(dataModel);
-        return Render(htmlTemplate, data);
-    }
-    public string Render(string htmlTemplate, Dictionary<string, object?> dataModel)
-    {
-        var result = new StringBuilder();
-        int lastSeen = 0;
+        StringBuilder condition = new();
 
-        for (int i = 0; i < htmlTemplate.Length; i++)
+        for (int j = htmlTemplate.IndexOf('(', startIndex) + 1; htmlTemplate[j] != ')'; j++)
         {
-            if (htmlTemplate[i] == '$')
-            {
-                string keyWord = GetKeyWord(htmlTemplate, i, ref lastSeen);
-
-                if (keyWord.Equals("if", StringComparison.OrdinalIgnoreCase))
-                {
-                    string condition = GetCondition(htmlTemplate, lastSeen, ref lastSeen);
-
-                    var resultCondition = EvaluateCondition(dataModel, condition);
-                    var (ifBody, elseBody) = GetIfBody(htmlTemplate, ref lastSeen);
-
-                    var renderBody = resultCondition ? ifBody : elseBody;
-                    result.Append(Render(renderBody, dataModel));
-
-                    i = lastSeen;
-                    continue;
-                }
-                else if (keyWord.Equals("foreach", StringComparison.OrdinalIgnoreCase))
-                {
-                    string condition = GetCondition(htmlTemplate, lastSeen, ref lastSeen);
-
-                    var conditionWords = condition.ToString().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                    if (conditionWords.Length != 4 ||
-                        !conditionWords[0].Equals("var", StringComparison.OrdinalIgnoreCase) ||
-                        !conditionWords[2].Equals("in", StringComparison.OrdinalIgnoreCase))
-                        throw new InvalidOperationException("Неправильное использование");
-
-                    string variableName = conditionWords[1];
-                    var collections = GetValueByPath(dataModel, conditionWords[3]) as
-                            IEnumerable ??
-                            throw new InvalidOperationException("Забыли передать данные");
-
-                    string body = GetForeachBody(htmlTemplate, ref lastSeen);
-
-                    foreach (var item in collections)
-                    {
-                        var type = item.GetType();
-                        var value = type.GetProperty("Value", BindingFlags.Public | BindingFlags.Instance).GetValue(item);
-                        var localModel = new Dictionary<string, object?>(dataModel, StringComparer.OrdinalIgnoreCase)
-                        {
-                            [variableName] = value
-                        };
-
-                        result.Append(Render(body, localModel));
-                    }
-                    i = lastSeen;
-                    continue;
-                }
-            }
-
-            if (htmlTemplate[i] == '$' && i + 1 < htmlTemplate.Length && htmlTemplate[i + 1] == '{')
-            {
-                int end = htmlTemplate.IndexOf('}', i + 2);
-                if (end == -1)
-                    throw new InvalidOperationException("Нету закрывающей скобки");
-
-                string valueString = htmlTemplate[(i + 2)..end];
-                var value = GetValueByPath(dataModel, valueString)
-                    ?? throw new InvalidOperationException("Отсутствует значение в модели");
-
-                result.Append(value.ToString());
-                i = end;
-            }
-            else
-                result.Append(htmlTemplate[i]);
+            condition.Append(htmlTemplate[j]);
+            lastSeen = j + 2;
         }
-        return result.ToString();
+
+        return condition.ToString();
+    }
+}
+
+public class ForeachStrategyKeyWord : StrategyKeyWord
+{
+    public override void Algorithm(string htmlTemplate, Dictionary<string, object?> dataModel, StringBuilder result, ref int lastSeen, ref int position)
+    {
+        string condition = ExtractCondition(htmlTemplate, lastSeen, ref lastSeen);
+
+        var conditionWords = condition.ToString().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+        ValidateConditionForeach(conditionWords);
+
+        string variableName = conditionWords[1];
+        var collections = Utils.GetValueByPath(dataModel, conditionWords[3]) as
+                IEnumerable ??
+                throw new InvalidOperationException("Забыли передать данные");
+
+        string body = ExtractForeachBody(htmlTemplate, ref lastSeen);
+
+        foreach (var item in collections)
+        {
+            var localModel = new Dictionary<string, object?>(dataModel, StringComparer.OrdinalIgnoreCase)
+            {
+                [variableName] = Utils.GetItemValue(item)
+            };
+
+            result.Append(HtmlTemplateRenderer.Render(body, localModel));
+        }
+        position = lastSeen;
     }
 
-    private string GetForeachBody(string htmlTemplate, ref int startIndex)
+    private static void ValidateConditionForeach(string[] conditionWords)
+    {
+        if (conditionWords.Length != 4 ||
+            !conditionWords[0].Equals("var", StringComparison.OrdinalIgnoreCase) ||
+            !conditionWords[2].Equals("in", StringComparison.OrdinalIgnoreCase))
+            throw new InvalidOperationException("Неправильное использование");
+    }
+
+    private static string ExtractForeachBody(string htmlTemplate, ref int startIndex)
     {
         var foreachBody = new StringBuilder();
 
@@ -100,7 +72,7 @@ public class HtmlTemplateRenderer : IHtmlTemplateRenderer
         {
             if (htmlTemplate[i] == '$')
             {
-                string keyWord = GetKeyWord(htmlTemplate, i, ref startIndex);
+                string keyWord = Utils.ExtractKeyWord(htmlTemplate, i, ref startIndex);
                 if (keyWord.Equals("foreach", StringComparison.OrdinalIgnoreCase))
                     depth++;
                 else if (keyWord.Equals("endfor", StringComparison.OrdinalIgnoreCase))
@@ -115,8 +87,24 @@ public class HtmlTemplateRenderer : IHtmlTemplateRenderer
         }
         throw new InvalidOperationException("Не найден $endfor");
     }
+}
 
-    private (string ifBody, string elseBody) GetIfBody(string htmlTemplate, ref int startIndex)
+public class IfStrategyKeyWord : StrategyKeyWord
+{
+    public override void Algorithm(string htmlTemplate, Dictionary<string, object?> dataModel, StringBuilder result, ref int lastSeen, ref int position)
+    {
+        string condition = ExtractCondition(htmlTemplate, lastSeen, ref lastSeen);
+
+        var resultCondition = EvaluateCondition(dataModel, condition);
+        var (ifBody, elseBody) = ExtractIfBody(htmlTemplate, ref lastSeen);
+
+        var renderBody = resultCondition ? ifBody : elseBody;
+        result.Append(HtmlTemplateRenderer.Render(renderBody, dataModel));
+
+        position = lastSeen;
+    }
+
+    private static (string ifBody, string elseBody) ExtractIfBody(string htmlTemplate, ref int startIndex)
     {
         var ifBody = new StringBuilder();
         var elseBody = new StringBuilder();
@@ -129,7 +117,7 @@ public class HtmlTemplateRenderer : IHtmlTemplateRenderer
         {
             if (htmlTemplate[i] == '$')
             {
-                string keyWord = GetKeyWord(htmlTemplate, i, ref startIndex);
+                string keyWord = Utils.ExtractKeyWord(htmlTemplate, i, ref startIndex);
                 if (keyWord.Equals("if", StringComparison.OrdinalIgnoreCase))
                     depth++;
                 else if (keyWord.Equals("endif", StringComparison.OrdinalIgnoreCase))
@@ -156,85 +144,13 @@ public class HtmlTemplateRenderer : IHtmlTemplateRenderer
         throw new InvalidOperationException("Не найден $endif");
     }
 
-    private string GetCondition(string htmlTemplate, int startIndex, ref int lastSeen)
-    {
-        StringBuilder condition = new();
-
-        for (int j = htmlTemplate.IndexOf('(', startIndex) + 1; htmlTemplate[j] != ')'; j++)
-        {
-            condition.Append(htmlTemplate[j]);
-            lastSeen = j + 2;
-        }
-
-        return condition.ToString();
-    }
-
-    private Dictionary<string, object?> ToDictionary(object obj)
-    {
-        var result = new Dictionary<string, object?>(StringComparer.OrdinalIgnoreCase);
-
-        if (obj == null) return result;
-
-        if (obj is Dictionary<string, object?> dict)
-            return new Dictionary<string, object?>(dict, StringComparer.OrdinalIgnoreCase);
-
-        if (obj is IEnumerable enumerable && obj is not string)
-        {
-            int index = 0;
-            foreach (var item in enumerable)
-            {
-                result[index++.ToString()] = ToDictionary(item);
-            }
-            return result;
-        }
-
-        var type = obj.GetType();
-
-        if (IsSimpleType(type))
-            return new Dictionary<string, object?>() { ["value"] = obj };
-
-        foreach (var prop in type.GetProperties(BindingFlags.Public | BindingFlags.Instance))
-        {
-            var val = prop.GetValue(obj);
-            if (val != null && !IsSimpleType(val.GetType()))
-                result[prop.Name] = ToDictionary(val);
-            else
-                result[prop.Name] = val;
-        }
-        return result;
-    }
-
-    private static bool IsSimpleType(Type type)
-    {
-        return type.IsPrimitive || type.IsEnum || type == typeof(string) || type == typeof(decimal) || type == typeof(DateTime);
-    }
-
-    private string GetKeyWord(string htmlTemplate, int startIndex, ref int lastSeen)
-    {
-        var keyWordBuilder = new StringBuilder();
-
-        int i = startIndex + 1;
-
-        while (i < htmlTemplate.Length && char.IsWhiteSpace(htmlTemplate[i]))
-        {
-            i++;
-        }
-
-        for (; i < htmlTemplate.Length && htmlTemplate[i] != ' ' && htmlTemplate[i] != '('; i++)
-        {
-            keyWordBuilder.Append(htmlTemplate[i]);
-            lastSeen = i;
-        }
-        return keyWordBuilder.ToString();
-    }
-
-    private bool EvaluateCondition(Dictionary<string, object?> obj, string condition)
+    private static bool EvaluateCondition(Dictionary<string, object?> obj, string condition)
     {
         var gtMatch = Regex.Match(condition, @"([^>]+)\s*>\s*([^>]+)");
         if (gtMatch.Success)
         {
-            var left = GetValueByPath(obj, gtMatch.Groups[1].Value.Trim());
-            var right = GetValueByPath(obj, gtMatch.Groups[2].Value.Trim());
+            var left = Utils.GetValueByPath(obj, gtMatch.Groups[1].Value.Trim());
+            var right = Utils.GetValueByPath(obj, gtMatch.Groups[2].Value.Trim());
 
             if (left is IComparable leftComp && right is IComparable rightComp)
             {
@@ -243,42 +159,102 @@ public class HtmlTemplateRenderer : IHtmlTemplateRenderer
         }
 
         // Булевы значения
-        var value = GetValueByPath(obj, condition);
+        var value = Utils.GetValueByPath(obj, condition);
         return value is bool boolValue ? boolValue : false;
     }
+}
 
-    public static object? GetValueByPath(Dictionary<string, object?> obj, string path)
+public class VariableStrategyKeyWord : StrategyKeyWord
+{
+    public override void Algorithm(string htmlTemplate, Dictionary<string, object?> dataModel, StringBuilder result, ref int lastSeen, ref int position)
     {
-        if (obj == null || string.IsNullOrEmpty(path))
-            return null;
+        int end = htmlTemplate.IndexOf('}', position + 2);
+        if (end == -1)
+            throw new InvalidOperationException("Нету закрывающей скобки");
 
-        var parts = path.Split('.');
-        object? current = obj;
+        string valueString = htmlTemplate[(position + 2)..end];
+        var value = Utils.GetValueByPath(dataModel, valueString)
+            ?? throw new InvalidOperationException("Отсутствует значение в модели");
 
-        foreach (var part in parts)
+        result.Append(value.ToString());
+        position = end;
+    }
+}
+
+public class TemplateProcessor
+{
+    public TemplateProcessor() { }
+    public TemplateProcessor(StrategyKeyWord strategy) => Strategy = strategy;
+    public StrategyKeyWord Strategy { get; set; }
+
+    public void Execute(string htmlTemplate, Dictionary<string, object?> dataModel, StringBuilder result, ref int lastSeen, ref int position)
+    {
+        if (Strategy == null)
+            throw new ArgumentException("Вы не передали стратегию");
+
+        Strategy.Algorithm(htmlTemplate, dataModel, result, ref lastSeen, ref position);
+    }
+}
+
+
+public class HtmlTemplateRenderer : IHtmlTemplateRenderer
+{
+
+    public string RenderFromString(string htmlTemplate, object dataModel)
+    {
+        var data = Utils.ToDictionary(dataModel);
+        return Render(htmlTemplate, data);
+    }
+
+    public static string Render(string htmlTemplate, Dictionary<string, object?> dataModel)
+    {
+        var result = new StringBuilder();
+
+        TemplateProcessor processor = new();
+
+        for (int i = 0, lastSeen = 0; i < htmlTemplate.Length; i++)
         {
-            if (current is Dictionary<string, object?> dict)
+            if (htmlTemplate[i] == '$')
             {
-                if (!dict.TryGetValue(part, out current))
-                    return null;
-            } else
-            {
-                var prop = current?.GetType().GetProperty(part, BindingFlags.Instance | BindingFlags.Public);
-                current = prop?.GetValue(current);
-            }
-        }
+                string keyWord = Utils.ExtractKeyWord(htmlTemplate, i, ref lastSeen);
 
-        return current;
+                if (keyWord.Equals("if", StringComparison.OrdinalIgnoreCase))
+                {
+                    processor.Strategy = new IfStrategyKeyWord();
+                    processor.Execute(htmlTemplate, dataModel, result, ref lastSeen, ref i);
+
+                    continue;
+                }
+                else if (keyWord.Equals("foreach", StringComparison.OrdinalIgnoreCase))
+                {
+                    processor.Strategy = new ForeachStrategyKeyWord();
+                    processor.Execute(htmlTemplate, dataModel, result, ref lastSeen, ref i);
+
+                    continue;
+                }
+            }
+
+            if (htmlTemplate[i] == '$' && i + 1 < htmlTemplate.Length && htmlTemplate[i + 1] == '{')
+            {
+                processor.Strategy = new VariableStrategyKeyWord();
+                processor.Execute(htmlTemplate, dataModel, result, ref lastSeen, ref i);
+            }
+            else
+                result.Append(htmlTemplate[i]);
+        }
+        return result.ToString();
     }
 
     public string RenderFromFile(string filePath, object dataModel)
     {
-        throw new NotImplementedException();
+        return RenderFromString(File.ReadAllText(filePath, Encoding.UTF8), dataModel);
     }
 
     public string RenderToFile(string inputFilePath, string outputFilePath, object dataModel)
     {
-        throw new NotImplementedException();
+        var result = RenderFromFile(inputFilePath, dataModel);
+        File.WriteAllText(outputFilePath, result);
+        return result;
     }
 
 }
