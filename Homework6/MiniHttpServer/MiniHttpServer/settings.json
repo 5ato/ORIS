@@ -1,0 +1,6 @@
+{
+  "PublicDirectoryPath": "connection",
+  "Domain": "localhost",
+  "Port": "8888",
+  "ConnectionString": "Host=localhost;Port=5432;Database=ORIS;Username=postgres;Password=aboba"
+}
