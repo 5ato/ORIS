@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GameAndDot.MAUI"
+             x:Class="GameAndDot.MAUI.MainPage">
+    <Grid ColumnDefinitions="*, 250" Padding="10">
+
+        <!-- Весь холст -->
+        <Border Grid.Column="0" 
+                StrokeThickness="2" 
+                Stroke="Gray"
+                Margin="0,0,10,0">
+            <GraphicsView x:Name="CanvasView"
+                         Drawable="{Binding DrawableCanvas}"
+                         BackgroundColor="White">
+                <GraphicsView.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnCanvasTapped" />
+                </GraphicsView.GestureRecognizers>
+            </GraphicsView>
+        </Border>
+
+        <!-- Right Panel -->
+        <Border Grid.Column="1" 
+                StrokeThickness="2" 
+                Stroke="Gray"
+                Padding="10"
+                BackgroundColor="#F5F5F5">
+
+            <ScrollView>
+                <VerticalStackLayout Spacing="15">
+
+                    <!-- User Information Section -->
+                    <Border Stroke="DarkGray" 
+                           Padding="10"
+                           BackgroundColor="White"
+                           StrokeShape="{RoundRectangle CornerRadius=8}">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="Your Information" 
+                                   FontSize="18" 
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center"
+                                   TextColor="Black"/>
+
+                            <!-- Username Display -->
+                            <HorizontalStackLayout Spacing="5">
+                                <Label Text="Username:" 
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"
+                                       TextColor="Black"/>
+                                <Label Text="{Binding CurrentUser.Username}" 
+                                       VerticalOptions="Center"
+                                       TextColor="Black"/>
+                            </HorizontalStackLayout>
+
+                            <!-- Color Display and Selector -->
+                            <HorizontalStackLayout Spacing="10">
+                                <Label Text="Color:" 
+                                       FontAttributes="Bold"
+                                       VerticalOptions="Center"
+                                       TextColor="Black"/>
+                                <BoxView Color="{Binding CurrentUser.DotColor}"
+                                        WidthRequest="30"
+                                        HeightRequest="30"
+                                        CornerRadius="4"
+                                        VerticalOptions="Center"/>
+                            </HorizontalStackLayout>
+
+                            <!-- Color Selection Button -->
+                            <Button Text="Select Color"
+                                   Clicked="OnSelectColorClicked"
+                                   BackgroundColor="#007ACC"
+                                   TextColor="Black"
+                                   CornerRadius="5"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Players List Section -->
+                    <Border Stroke="DarkGray" 
+                           StrokeShape="{RoundRectangle CornerRadius=8}"
+                           Padding="10"
+                           BackgroundColor="White">
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="Other Players" 
+                                   FontSize="18" 
+                                   FontAttributes="Bold"
+                                   HorizontalOptions="Center"
+                                   TextColor="Black"/>
+
+                            <!-- Players CollectionView for easy data binding -->
+                            <CollectionView x:Name="PlayersCollection"
+                                          ItemsSource="{Binding OtherPlayers}"
+                                          SelectionMode="None">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border StrokeThickness="1"
+                                               Stroke="LightGray"
+                                               Padding="8"
+                                               Margin="0,2"
+                                               BackgroundColor="WhiteSmoke">
+                                            <HorizontalStackLayout Spacing="10">
+                                                <!-- Player Color Indicator -->
+                                                <BoxView Color="{Binding DotColor}"
+                                                        WidthRequest="25"
+                                                        HeightRequest="25"
+                                                        CornerRadius="12.5"
+                                                        VerticalOptions="Center"/>
+
+                                                <!-- Player Username -->
+                                                <Label Text="{Binding Username}"
+                                                      VerticalOptions="Center"
+                                                      FontSize="14"
+                                                       TextColor="Black"/>
+                                            </HorizontalStackLayout>
+                                        </Border>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- Instructions -->
+                    <Label Text="Tap on the canvas to place dots!"
+                           FontSize="12"
+                           FontAttributes="Italic"
+                           HorizontalOptions="Center"
+                           TextColor="DarkBlue"/>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        </Border>
+    </Grid>
+
+</ContentPage>
